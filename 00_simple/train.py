@@ -73,15 +73,15 @@ for epoch in range(epochs):
 print("Training Complete.")
 
 if os.name == "nt":
-    INTENTS_FILE = "00_simple\\data.pth"
+    DATA_FILE = "00_simple\\data.pth"
 else:
-    INTENTS_FILE = "./data.pth"
+    DATA_FILE = "./data.pth"
 
 torch.save({
-     "model_state": model.state_dict(),
+    "model_state": model.state_dict(),
     "input_size": input_size,
     "hidden_size": hidden_size,
     "output_size": output_size,
     "all_words": all_words,
     "tags": tags
-}, "00_simple\\data.pth")
+}, DATA_FILE)
