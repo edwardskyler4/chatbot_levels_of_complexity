@@ -44,9 +44,9 @@ while True:
     tag = tags[predicted.item()]
 
     probs = torch.softmax(output, dim=0)
-    prob = probs[predicted.item()]
+    prob = probs[predicted.item()] # type: ignore
 
-    if prob.item(0 > 0.75):
+    if prob.item() > 0.75:
         for intent in intents["intents"]:
             if tag == intent["tag"]:
                 print(f"Bot: {random.choice(intent["responses"])}")

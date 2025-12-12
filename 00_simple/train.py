@@ -4,7 +4,7 @@ import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 import os
 
-from model import NerualNet
+from model import NeuralNet
 from utils import tokenize, bag_of_words
 
 if os.name == "nt":
@@ -45,13 +45,13 @@ X_train = torch.tensor(X_train, dtype=torch.float32)
 y_train = torch.tensor(y_train, dtype=torch.long)
 
 dataset = list(zip(X_train, y_train))
-loader = DataLoader(dataset=dataset, batch_size=8, shuffle=True)
+loader = DataLoader(dataset=dataset, batch_size=8, shuffle=True) # type: ignore
 
 input_size = len(all_words)
 hidden_size = 8
 output_size = len(tags)
 
-model = NerualNet(input_size, hidden_size, output_size)
+model = NeuralNet(input_size, hidden_size, output_size)
 
 criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001)

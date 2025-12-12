@@ -1,4 +1,4 @@
 .git
 .jj
 .venv
-.pyc
+*.pyc
