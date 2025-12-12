@@ -2,3 +2,4 @@
 .jj
 .venv
 *.pyc
+*.pth
